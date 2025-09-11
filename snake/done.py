@@ -8,10 +8,10 @@ SIZE_Y = 20
 
 def initialize_map():
     """Initialize the map for word tracking."""
-    map = []
+    map: list[list[str]] = []
 
     for y in range(SIZE_Y):
-        row = []
+        row: list[str] = []
         for x in range(SIZE_X):
             if y == 0 or y == SIZE_Y - 1 or x == 0 or x == SIZE_X - 1:
                 row.append("#")
@@ -87,7 +87,7 @@ def update():
 
 map = initialize_map()
 snake_head_start_pos = (SIZE_X // 2, SIZE_Y // 2)
-snake = [snake_head_start_pos, (snake_head_start_pos[0], snake_head_start_pos[1] - 1)]
+snake: list[tuple[int, int]] = [snake_head_start_pos, (snake_head_start_pos[0], snake_head_start_pos[1] - 1)]
 direction = (-1, 0)  # Moving up initially
 fruit_position = select_fruit_position()
 
