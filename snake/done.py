@@ -64,7 +64,8 @@ def get_direction():
 
 def update():
     global fruit_position
-    new_head = (snake[0][0] + direction[0], snake[0][1] + direction[1])
+    current_head = snake[0]
+    new_head = (current_head[0] + direction[0], current_head[1] + direction[1])
 
     if (
         new_head[0] <= 0
