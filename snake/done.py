@@ -45,6 +45,7 @@ def select_fruit_position():
 
 def get_direction():
     # Drain the buffer so only the latest keypress is processed
+    direction = None
     while msvcrt.kbhit():
         key = msvcrt.getch()
         if key in (b'\x00', b'\xe0'):
@@ -58,8 +59,7 @@ def get_direction():
                 direction = (-1, 0)
             elif last_key == b'M':
                 direction = (1, 0)
-    # Only return the last detected direction in the buffer
-    return direction if 'direction' in locals() else None
+    return direction
 
 
 def update():

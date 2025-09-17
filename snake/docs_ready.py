@@ -10,26 +10,21 @@ os.system("cls" if os.name == "nt" else "clear")
 x = random.randint(1, 10)
 
 # Reading the arrow buttons
-# Drain the buffer so only the latest keypress is processed
+direction = None
 while msvcrt.kbhit():
     key = msvcrt.getch()
     if key in (b'\x00', b'\xe0'):
         last_key = msvcrt.getch()
         direction = None
         if last_key == b'H':  # Up arrow
-            pass
+            direction = "Up arrow was pressed"
         elif last_key == b'P':  # Down arrow
-            pass
+            direction = "Down arrow was pressed"
         elif last_key == b'K':  # Left arrow
-            pass
+            direction = "Left arrow was pressed"
         elif last_key == b'M':  # Right arrow
-            pass
-# Only return the last detected direction in the buffer
-new_dir = direction if 'direction' in locals() else None
+            direction = "Right arrow was pressed"
+print(direction)
 
-# if you want to reassign a value to an external variable
-def func():
-    global variable
-
-# way to time out, "framerate"
+# way to time out, set the "framerate"
 sleep(0.1)
